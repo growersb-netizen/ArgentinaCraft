@@ -1,0 +1,185 @@
+name: 🇦🇷 ArgentinaCraft — Build & Release
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versión del release (ej: v1.0.1)'
+        required: false
+        default: 'dev'
+
+jobs:
+  # ============================================================
+  # JOB 1: Validar archivos del proyecto
+  # ============================================================
+  validate:
+    name: ✅ Validar Proyecto
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validar JSON de quests
+        run: |
+          echo "🔍 Validando archivos JSON..."
+          for f in $(find quests/ npc/ teleport_system/ achievements/ economy/ -name "*.json"); do
+            python3 -c "import json,sys; json.load(open('$f'))" && echo "  ✅ $f" || (echo "  ❌ $f" && exit 1)
+          done
+          echo "✅ Todos los JSON son válidos"
+
+      - name: Validar YAML del plugin
+        run: |
+          echo "🔍 Validando YAML..."
+          pip install pyyaml -q
+          for f in $(find plugins/ server/ -name "*.yml"); do
+            python3 -c "import yaml,sys; yaml.safe_load(open('$f'))" && echo "  ✅ $f" || (echo "  ❌ $f" && exit 1)
+          done
+          echo "✅ Todos los YAML son válidos"
+
+      - name: Verificar estructura de carpetas
+        run: |
+          echo "📁 Verificando estructura del proyecto..."
+          REQUIRED_DIRS=(
+            "server" "worlds/hub" "worlds/buenos_aires" "worlds/cordoba"
+            "worlds/misiones" "worlds/mendoza" "plugins/ArgentinaCraft_Core"
+            "npc/dialogues" "quests/buenos_aires" "docs" "teleport_system"
+            "achievements" "economy" "behavior_packs" "resource_packs"
+          )
+          for dir in "${REQUIRED_DIRS[@]}"; do
+            [ -d "$dir" ] && echo "  ✅ $dir/" || (echo "  ❌ Falta: $dir/" && exit 1)
+          done
+          echo "✅ Estructura completa"
+
+  # ============================================================
+  # JOB 2: Empaquetar para Aternos
+  # ============================================================
+  package-aternos:
+    name: 📦 Empaquetar para Aternos
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Descargar PocketMine-MP
+        run: |
+          echo "📥 Descargando PocketMine-MP..."
+          PM_VERSION=$(curl -s https://api.github.com/repos/pmmp/PocketMine-MP/releases/latest | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])")
+          echo "   Versión: $PM_VERSION"
+          curl -L -o server/PocketMine-MP.phar \
+            "https://github.com/pmmp/PocketMine-MP/releases/download/$PM_VERSION/PocketMine-MP.phar"
+          echo "✅ Descargado: $(du -sh server/PocketMine-MP.phar | cut -f1)"
+
+      - name: Crear paquete Aternos
+        run: |
+          echo "📦 Creando paquete para Aternos..."
+          VERSION="${{ github.event.inputs.version || github.ref_name || 'dev' }}"
+          PACKAGE="argentinacraft-aternos-$VERSION.zip"
+
+          zip -r "$PACKAGE" \
+            server/pocketmine.yml \
+            server/server.properties \
+            server/php.ini \
+            plugins/ArgentinaCraft_Core/ \
+            behavior_packs/ \
+            resource_packs/ \
+            --exclude "*.git*" --exclude "*players*"
+
+          echo "✅ Paquete creado: $PACKAGE ($(du -sh $PACKAGE | cut -f1))"
+          echo "ATERNOS_PACKAGE=$PACKAGE" >> $GITHUB_ENV
+
+      - name: Crear paquete completo
+        run: |
+          VERSION="${{ github.event.inputs.version || github.ref_name || 'dev' }}"
+          FULL_PACKAGE="argentinacraft-full-$VERSION.zip"
+
+          zip -r "$FULL_PACKAGE" . \
+            --exclude "*.git*" --exclude "*node_modules*" \
+            --exclude "*players*" --exclude "backups/*" \
+            --exclude "*.tar.gz" --exclude "*.zip.bak"
+
+          echo "✅ Paquete completo: $FULL_PACKAGE ($(du -sh $FULL_PACKAGE | cut -f1))"
+          echo "FULL_PACKAGE=$FULL_PACKAGE" >> $GITHUB_ENV
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: argentinacraft-packages
+          path: |
+            argentinacraft-aternos-*.zip
+            argentinacraft-full-*.zip
+          retention-days: 30
+
+  # ============================================================
+  # JOB 3: Release automático en tags v*
+  # ============================================================
+  release:
+    name: 🚀 Publicar Release
+    runs-on: ubuntu-latest
+    needs: package-aternos
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Descargar artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: argentinacraft-packages
+
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "ArgentinaCraft ${{ github.ref_name }} 🇦🇷"
+          body: |
+            ## 🇦🇷 ArgentinaCraft ${{ github.ref_name }}
+
+            ### 📦 Archivos del Release
+
+            | Archivo | Descripción |
+            |---------|-------------|
+            | `argentinacraft-aternos-*.zip` | **Para Aternos** — Subir directo al panel |
+            | `argentinacraft-full-*.zip` | **Completo** — Para Oracle Cloud o instalación manual |
+
+            ### 🚀 Instalación Rápida en Aternos
+            1. Descargar `argentinacraft-aternos-*.zip`
+            2. En Aternos → **Archivos** → Descomprimir en la raíz
+            3. Iniciar servidor ✅
+
+            ### 📱 Compatibilidad
+            - Android ✅ | iOS/iPad ✅ | Windows ✅ | Tablets ✅
+
+            ### 📖 Documentación
+            Ver carpeta `docs/` en el repo para guías completas.
+          files: |
+            argentinacraft-aternos-*.zip
+            argentinacraft-full-*.zip
+          draft: false
+          prerelease: false
+
+  # ============================================================
+  # JOB 4: Summary del build
+  # ============================================================
+  summary:
+    name: 📊 Resumen
+    runs-on: ubuntu-latest
+    needs: [validate, package-aternos]
+    if: always()
+    steps:
+      - name: Build Summary
+        run: |
+          echo "## 🇦🇷 ArgentinaCraft Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Estado |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| ✅ Validación | ${{ needs.validate.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "| 📦 Empaquetado | ${{ needs.package-aternos.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Rama:** \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
