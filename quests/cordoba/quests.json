@@ -1,0 +1,54 @@
+{
+  "_comment": "ArgentinaCraft — Misiones de Córdoba",
+  "_version": "1.0.0",
+  "province": "cordoba",
+  "quests": [
+    {
+      "id": "cba_welcome",
+      "name": "§a¡La Docta te Recibe!",
+      "description": "Llegaste a Córdoba, la ciudad universitaria más importante de Argentina.",
+      "category": "intro",
+      "steps": [
+        {
+          "id": "arrive",
+          "type": "arrive_in_world",
+          "world": "cordoba",
+          "description": "Llegar a Córdoba"
+        }
+      ],
+      "rewards": {"coins": 25, "achievement": "cordoba_first_visit"}
+    },
+    {
+      "id": "cba_sierras",
+      "name": "§aSendero Serrano",
+      "description": "Explorá el paisaje montañoso de las Sierras de Córdoba.",
+      "category": "exploration",
+      "steps": [
+        {
+          "id": "reach_peak",
+          "type": "reach_location",
+          "location": {"x": 0, "y": 120, "z": 0, "radius": 20},
+          "world": "cordoba",
+          "description": "Llegar a la cima de las sierras"
+        }
+      ],
+      "rewards": {"coins": 60, "achievement": "sierras_climbed"}
+    },
+    {
+      "id": "cba_carlos_paz",
+      "name": "§bVilla Carlos Paz",
+      "description": "Visitá el lago San Roque y el centro turístico de Villa Carlos Paz.",
+      "category": "exploration",
+      "steps": [
+        {
+          "id": "reach_lake",
+          "type": "reach_location",
+          "location": {"x": 100, "y": 65, "z": 100, "radius": 25},
+          "world": "cordoba",
+          "description": "Llegar al lago San Roque"
+        }
+      ],
+      "rewards": {"coins": 50, "achievement": "lago_san_roque"}
+    }
+  ]
+}

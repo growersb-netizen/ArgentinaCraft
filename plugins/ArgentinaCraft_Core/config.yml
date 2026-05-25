@@ -1,0 +1,47 @@
+# =============================================================
+# ArgentinaCraft Core — Configuración
+# Modificá estos valores para ajustar el comportamiento
+# =============================================================
+
+# Economía
+economy:
+  starting-coins: 0
+  province-visit-reward: 25
+  landmark-visit-reward: 50
+  quest-complete-reward: 100
+  daily-login-reward: 10
+
+# Pasaporte
+passport:
+  enabled: true
+  notify-on-stamp: true
+
+# Teleporte
+teleport:
+  hub-enabled: true
+  hub-cooldown: 5         # segundos entre teletransportes
+  province-cooldown: 10
+  landmark-cooldown: 5
+
+# NPCs
+npc:
+  enabled: true
+  interaction-radius: 3
+
+# Mensajes
+messages:
+  language: "es"
+  welcome-enabled: true
+  join-message-enabled: true
+  quit-message-enabled: true
+
+# Spawn protection
+spawn-protection:
+  hub-radius: 32
+  province-radius: 16
+
+# Performance
+performance:
+  max-entities-per-chunk: 10
+  ticking-radius: 3
+  save-interval: 300      # segundos entre guardado automático

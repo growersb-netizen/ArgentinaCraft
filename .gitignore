@@ -1,0 +1,57 @@
+# =============================================================
+# ArgentinaCraft — .gitignore
+# =============================================================
+
+# PocketMine-MP binario (se descarga en deploy)
+server/PocketMine-MP.phar
+server/PocketMine-MP_old.phar
+server/PocketMine-MP_backup.phar
+
+# Datos de jugadores (privacidad)
+plugins/ArgentinaCraft_Core/players/
+plugins/*/players/
+
+# Logs del servidor
+server/logs/
+*.log
+
+# Datos de runtime
+server/ops.json
+server/banned-players.json
+server/banned-ips.json
+server/whitelist.json
+
+# Mundos generados (son grandes, se generan en el servidor)
+# Descomentá estas líneas si no querés subir los mundos al repo:
+# worlds/hub/
+# worlds/buenos_aires/
+# worlds/cordoba/
+# worlds/misiones/
+# worlds/mendoza/
+
+# Backups (no subir al repo, son archivos grandes)
+backups/
+*.tar.gz
+*.zip.bak
+
+# Archivos temporales
+*.tmp
+*.temp
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Crashdumps de PocketMine
+server/crashdumps/
+crash-*.log
+
+# PHP cache
+.opcache/
+
+# Node modules (si se usa en desarrollo)
+node_modules/

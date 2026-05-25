@@ -1,0 +1,151 @@
+{
+  "_comment": "ArgentinaCraft — Misiones de Buenos Aires",
+  "_version": "1.0.0",
+  "province": "buenos_aires",
+  "quests": [
+    {
+      "id": "ba_welcome",
+      "name": "§6Bienvenido a Buenos Aires",
+      "description": "Llegaste a la ciudad más grande de Argentina. ¡Explorá la ciudad!",
+      "category": "intro",
+      "chain_next": "ba_obelisco",
+      "steps": [
+        {
+          "id": "arrive",
+          "type": "arrive_in_world",
+          "world": "buenos_aires",
+          "description": "Llegar a Buenos Aires",
+          "completed_message": "§a✅ ¡Llegaste a Buenos Aires! +25 monedas 🪙"
+        }
+      ],
+      "rewards": {
+        "coins": 25,
+        "experience": 10,
+        "achievement": "ba_first_visit"
+      }
+    },
+    {
+      "id": "ba_obelisco",
+      "name": "§eEl Obelisco te Llama",
+      "description": "Visitá el símbolo más icónico de Buenos Aires.",
+      "category": "exploration",
+      "chain_next": "ba_caminito",
+      "steps": [
+        {
+          "id": "reach_obelisco",
+          "type": "reach_location",
+          "location": {"x": 100, "y": 64, "z": 0, "radius": 15},
+          "world": "buenos_aires",
+          "description": "Llegar al Obelisco",
+          "hint": "§7Usá /landmark obelisco para encontrarlo"
+        },
+        {
+          "id": "talk_to_guide",
+          "type": "talk_to_npc",
+          "npc_id": "obelisco_guide",
+          "description": "Hablar con el Guía del Obelisco"
+        }
+      ],
+      "rewards": {
+        "coins": 50,
+        "experience": 25,
+        "achievement": "obelisco_visited",
+        "stamp": "obelisco"
+      }
+    },
+    {
+      "id": "ba_caminito",
+      "name": "§cColores en La Boca",
+      "description": "Explorá el colorido Caminito en el barrio de La Boca.",
+      "category": "exploration",
+      "chain_next": "ba_bombonera",
+      "steps": [
+        {
+          "id": "reach_caminito",
+          "type": "reach_location",
+          "location": {"x": 200, "y": 64, "z": 0, "radius": 15},
+          "world": "buenos_aires",
+          "description": "Llegar a Caminito",
+          "hint": "§7Usá /landmark caminito"
+        },
+        {
+          "id": "talk_artist",
+          "type": "talk_to_npc",
+          "npc_id": "caminito_artist",
+          "description": "Hablar con el Artista de Caminito"
+        }
+      ],
+      "rewards": {
+        "coins": 40,
+        "experience": 20,
+        "achievement": "caminito_visited"
+      }
+    },
+    {
+      "id": "ba_bombonera",
+      "name": "§1La Cancha del Mundo",
+      "description": "Visitá el estadio La Bombonera, ícono del fútbol argentino.",
+      "category": "exploration",
+      "chain_next": "ba_explorer",
+      "steps": [
+        {
+          "id": "reach_bombonera",
+          "type": "reach_location",
+          "location": {"x": 300, "y": 64, "z": 0, "radius": 15},
+          "world": "buenos_aires",
+          "description": "Llegar a La Bombonera",
+          "hint": "§7Usá /landmark la_bombonera"
+        }
+      ],
+      "rewards": {
+        "coins": 45,
+        "experience": 25,
+        "achievement": "bombonera_visited"
+      }
+    },
+    {
+      "id": "ba_explorer",
+      "name": "§6§lExplorador Porteño",
+      "description": "¡Completaste los tres landmarks principales de Buenos Aires!",
+      "category": "completion",
+      "chain_next": null,
+      "requirement": {
+        "completed_quests": ["ba_obelisco", "ba_caminito", "ba_bombonera"]
+      },
+      "steps": [
+        {
+          "id": "claim_reward",
+          "type": "claim",
+          "description": "Reclamar el premio de Explorador Porteño"
+        }
+      ],
+      "rewards": {
+        "coins": 200,
+        "experience": 100,
+        "achievement": "ba_complete",
+        "title": "§6Explorador Porteño"
+      }
+    },
+    {
+      "id": "ba_hidden_mate",
+      "name": "§2🍵 El Mate Secreto",
+      "description": "Se dice que hay una estatua de mate escondida en Buenos Aires...",
+      "category": "secret",
+      "secret": true,
+      "steps": [
+        {
+          "id": "find_mate",
+          "type": "find_secret",
+          "secret_id": "hidden_mate_statue",
+          "description": "Encontrar la estatua de mate escondida"
+        }
+      ],
+      "rewards": {
+        "coins": 150,
+        "experience": 75,
+        "achievement": "mate_secret_found",
+        "title": "§2Mateador"
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+# =============================================================
+# ArgentinaCraft — PocketMine-MP Server Configuration
+# PocketMine-MP 5.x | Bedrock Edition Compatible
+# =============================================================
+
+motd: "§l§6Argentina§eCraft §r§7| Explorá Argentina 🇦🇷"
+sub-motd: "§bTurismo • Historia • Aventura"
+
+server-port: 19132
+server-portv6: 19133
+
+# Max players (ajustar según hosting)
+max-players: 20
+
+# Language
+language: "spa"
+
+# Gamemode: 2 = Adventure (ideal para turismo)
+gamemode: 2
+force-gamemode: true
+
+# Difficulty: 0=Peaceful, 1=Easy
+difficulty: 0
+
+# Spawn protection (radio del HUB)
+spawn-protection: 32
+
+# Auto-save cada 5 minutos
+auto-save: true
+auto-save-ticks: 6000
+
+# Whitelist: false para servidor público
+white-list: false
+
+# Ops
+enable-query: true
+enable-rcon: false
+
+# Performance
+max-chunk-radius: 8
+view-distance: 8
+
+# Worlds
+worlds:
+  hub:
+    seed: "ArgentinaCraft2024"
+    generator: flat
+    preset: "2;minecraft:grass,3*minecraft:dirt,58*minecraft:stone;1;village"
+  buenos_aires:
+    seed: "BuenosAires2024"
+    generator: normal
+  cordoba:
+    seed: "Cordoba2024"
+    generator: normal
+  misiones:
+    seed: "Misiones2024"
+    generator: normal
+  mendoza:
+    seed: "Mendoza2024"
+    generator: normal
+
+# Logging
+logging:
+  log-debug: false
+
+# Network
+network:
+  compression-threshold: 256
+  async-compression: true
+  upnp-forwarding: false
+
+# Player data
+player:
+  save-player-data: true
+  spawn-radius: 3

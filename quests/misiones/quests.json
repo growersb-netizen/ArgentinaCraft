@@ -1,0 +1,54 @@
+{
+  "_comment": "ArgentinaCraft — Misiones de Misiones",
+  "_version": "1.0.0",
+  "province": "misiones",
+  "quests": [
+    {
+      "id": "mis_welcome",
+      "name": "§2La Selva te Espera",
+      "description": "Llegaste a Misiones, tierra del Iguazú y la selva subtropical.",
+      "category": "intro",
+      "steps": [
+        {
+          "id": "arrive",
+          "type": "arrive_in_world",
+          "world": "misiones",
+          "description": "Llegar a Misiones"
+        }
+      ],
+      "rewards": {"coins": 25, "achievement": "misiones_first_visit"}
+    },
+    {
+      "id": "mis_iguazu",
+      "name": "§bLas Cataratas del Iguazú",
+      "description": "Contemplá la maravilla natural más impresionante de Argentina.",
+      "category": "landmark",
+      "steps": [
+        {
+          "id": "reach_cataratas",
+          "type": "reach_location",
+          "location": {"x": 0, "y": 65, "z": 100, "radius": 30},
+          "world": "misiones",
+          "description": "Llegar a las Cataratas del Iguazú"
+        }
+      ],
+      "rewards": {"coins": 100, "achievement": "iguazu_visited", "stamp": "iguazu"}
+    },
+    {
+      "id": "mis_jungle_walk",
+      "name": "§2Sendero en la Selva",
+      "description": "Caminá por los senderos de la selva misionera.",
+      "category": "exploration",
+      "steps": [
+        {
+          "id": "walk_path",
+          "type": "walk_distance",
+          "distance": 500,
+          "world": "misiones",
+          "description": "Caminar 500 bloques por la selva"
+        }
+      ],
+      "rewards": {"coins": 40, "achievement": "jungle_walker"}
+    }
+  ]
+}

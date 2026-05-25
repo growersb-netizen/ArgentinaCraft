@@ -1,0 +1,66 @@
+{
+  "_comment": "ArgentinaCraft — Configuración de Música Ambiental",
+  "_version": "1.0.0",
+  "_note": "Los archivos .ogg van en resource_packs/ArgentinaCraft_RP/sounds/music/",
+  "zones": {
+    "hub": {
+      "name": "HUB — ArgentinaCraft Plaza",
+      "music_track": "argentinacraft.hub",
+      "volume": 0.6,
+      "loop": true,
+      "fade_in": 2.0,
+      "fade_out": 2.0,
+      "style": "alegre, turístico, bienvenida"
+    },
+    "buenos_aires": {
+      "name": "Buenos Aires",
+      "music_track": "argentinacraft.buenosaires",
+      "volume": 0.5,
+      "loop": true,
+      "fade_in": 3.0,
+      "fade_out": 3.0,
+      "style": "tango suave, urbano, porteño"
+    },
+    "cordoba": {
+      "name": "Córdoba — Sierras",
+      "music_track": "argentinacraft.cordoba",
+      "volume": 0.5,
+      "loop": true,
+      "fade_in": 3.0,
+      "fade_out": 3.0,
+      "style": "folklore, serrano, relajante"
+    },
+    "misiones": {
+      "name": "Misiones — Selva",
+      "music_track": "argentinacraft.misiones",
+      "volume": 0.5,
+      "loop": true,
+      "fade_in": 3.0,
+      "fade_out": 3.0,
+      "style": "naturaleza, agua, aves tropicales, misterioso"
+    },
+    "mendoza": {
+      "name": "Mendoza — Andes",
+      "music_track": "argentinacraft.mendoza",
+      "volume": 0.5,
+      "loop": true,
+      "fade_in": 3.0,
+      "fade_out": 3.0,
+      "style": "andino, cuecas, tranquilo, abierto"
+    }
+  },
+  "special_zones": {
+    "obelisco": {
+      "radius": 30,
+      "music_track": "argentinacraft.obelisco_ambient",
+      "override": true
+    },
+    "iguazu": {
+      "radius": 50,
+      "music_track": "argentinacraft.cataratas_ambient",
+      "override": true,
+      "style": "agua, cascadas, naturaleza épica"
+    }
+  },
+  "implementation_note": "Usar plugin de música para PocketMine-MP. Los archivos .ogg deben estar en el resource pack. Para mobile: usar tracks cortas (<2MB) para no impactar rendimiento."
+}

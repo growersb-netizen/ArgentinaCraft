@@ -1,0 +1,182 @@
+{
+  "_comment": "ArgentinaCraft — Sistema de Logros Completo",
+  "_version": "1.0.0",
+  "categories": {
+    "exploration": "🗺️  Exploración",
+    "landmarks": "🏛️  Landmarks",
+    "secrets": "🔍 Secretos",
+    "economy": "🪙 Economía",
+    "social": "👥 Social",
+    "provinces": "🇦🇷 Provincias",
+    "special": "⭐ Especiales"
+  },
+  "achievements": [
+    {
+      "id": "first_join",
+      "name": "§e¡Llegué a Argentina!",
+      "description": "Unirte a ArgentinaCraft por primera vez",
+      "category": "exploration",
+      "icon": "✈️",
+      "hidden": false,
+      "reward_coins": 10,
+      "reward_title": null
+    },
+    {
+      "id": "ba_first_visit",
+      "name": "§6Buenos Aires, Ciudad de Tango",
+      "description": "Visitar Buenos Aires por primera vez",
+      "category": "provinces",
+      "icon": "🏙️",
+      "hidden": false,
+      "reward_coins": 25,
+      "reward_title": "§6Porteño"
+    },
+    {
+      "id": "cordoba_first_visit",
+      "name": "§a¡La Docta!",
+      "description": "Visitar Córdoba por primera vez",
+      "category": "provinces",
+      "icon": "🏔️",
+      "hidden": false,
+      "reward_coins": 25,
+      "reward_title": "§aCordobés"
+    },
+    {
+      "id": "misiones_first_visit",
+      "name": "§2Tierra Colorada",
+      "description": "Visitar Misiones por primera vez",
+      "category": "provinces",
+      "icon": "🌿",
+      "hidden": false,
+      "reward_coins": 25,
+      "reward_title": "§2Misionero"
+    },
+    {
+      "id": "mendoza_first_visit",
+      "name": "§5Tierra del Sol y del Buen Vino",
+      "description": "Visitar Mendoza por primera vez",
+      "category": "provinces",
+      "icon": "🍇",
+      "hidden": false,
+      "reward_coins": 25,
+      "reward_title": "§5Mendocino"
+    },
+    {
+      "id": "obelisco_visited",
+      "name": "§eBajo el Obelisco",
+      "description": "Visitar el Obelisco de Buenos Aires",
+      "category": "landmarks",
+      "icon": "🗽",
+      "hidden": false,
+      "reward_coins": 50,
+      "reward_title": null
+    },
+    {
+      "id": "caminito_visited",
+      "name": "§cLa Boca Colorida",
+      "description": "Visitar el Caminito en La Boca",
+      "category": "landmarks",
+      "icon": "🎨",
+      "hidden": false,
+      "reward_coins": 40,
+      "reward_title": null
+    },
+    {
+      "id": "bombonera_visited",
+      "name": "§1Dale Boca!",
+      "description": "Visitar el estadio La Bombonera",
+      "category": "landmarks",
+      "icon": "⚽",
+      "hidden": false,
+      "reward_coins": 45,
+      "reward_title": null
+    },
+    {
+      "id": "iguazu_visited",
+      "name": "§bGarganta del Diablo",
+      "description": "Visitar las Cataratas del Iguazú",
+      "category": "landmarks",
+      "icon": "💧",
+      "hidden": false,
+      "reward_coins": 100,
+      "reward_title": "§bMaravilloso"
+    },
+    {
+      "id": "ba_complete",
+      "name": "§6§lExplorador Porteño",
+      "description": "Completar todos los landmarks de Buenos Aires",
+      "category": "exploration",
+      "icon": "🏆",
+      "hidden": false,
+      "reward_coins": 200,
+      "reward_title": "§6§lExplorador Porteño"
+    },
+    {
+      "id": "all_provinces",
+      "name": "§6§l🌟 Gran Explorador de Argentina",
+      "description": "Visitar las 4 provincias disponibles",
+      "category": "provinces",
+      "icon": "🌟",
+      "hidden": false,
+      "reward_coins": 500,
+      "reward_title": "§6§lGran Explorador"
+    },
+    {
+      "id": "mate_secret_found",
+      "name": "§2§l🍵 Mateador",
+      "description": "Encontrar la estatua de mate escondida",
+      "category": "secrets",
+      "icon": "🔍",
+      "hidden": true,
+      "reward_coins": 150,
+      "reward_title": "§2§lMateador"
+    },
+    {
+      "id": "rich_tourist",
+      "name": "§e§l💰 Rico Turístico",
+      "description": "Acumular 500 monedas turísticas",
+      "category": "economy",
+      "icon": "💰",
+      "hidden": false,
+      "reward_coins": 0,
+      "reward_title": "§e§lMillonario Turístico"
+    },
+    {
+      "id": "jungle_walker",
+      "name": "§2Sendero Misionero",
+      "description": "Caminar 500 bloques por la selva de Misiones",
+      "category": "exploration",
+      "icon": "🌴",
+      "hidden": false,
+      "reward_coins": 40,
+      "reward_title": null
+    },
+    {
+      "id": "andes_viewer",
+      "name": "§7Techo del Mundo",
+      "description": "Ver los Andes desde las alturas en Mendoza",
+      "category": "landmarks",
+      "icon": "🏔️",
+      "hidden": false,
+      "reward_coins": 80,
+      "reward_title": "§7Andinista"
+    },
+    {
+      "id": "sierras_climbed",
+      "name": "§aLa Cima Cordobesa",
+      "description": "Llegar a la cima de las Sierras de Córdoba",
+      "category": "exploration",
+      "icon": "⛰️",
+      "hidden": false,
+      "reward_coins": 60,
+      "reward_title": null
+    }
+  ],
+  "ranks": [
+    {"id": "visitor",    "name": "§7🚶 Visitante",          "required_stamps": 0,  "required_coins": 0},
+    {"id": "novice",     "name": "§f🎒 Explorador Novato",  "required_stamps": 1,  "required_coins": 0},
+    {"id": "tourist",    "name": "§a✈️  Turista Activo",    "required_stamps": 2,  "required_coins": 50},
+    {"id": "expert",     "name": "§b🗺️  Viajero Experto",   "required_stamps": 3,  "required_coins": 200},
+    {"id": "grand",      "name": "§6🌟 Gran Explorador",    "required_stamps": 4,  "required_coins": 500}
+  ]
+}

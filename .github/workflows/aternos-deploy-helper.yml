@@ -1,0 +1,41 @@
+name: 📋 Generar Guía de Deploy Aternos
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Destino del deploy'
+        required: true
+        default: 'aternos'
+        type: choice
+        options:
+          - aternos
+          - oracle
+
+jobs:
+  generate-deploy-guide:
+    name: 📋 Generar Checklist de Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generar guía para Aternos
+        if: inputs.target == 'aternos'
+        run: |
+          echo "## 📋 Guía de Deploy en Aternos" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Pasos:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Ir al release en GitHub → descargar \`argentinacraft-aternos-*.zip\`" >> $GITHUB_STEP_SUMMARY
+          echo "2. Login en https://aternos.org" >> $GITHUB_STEP_SUMMARY
+          echo "3. Crear servidor Bedrock con PocketMine-MP" >> $GITHUB_STEP_SUMMARY
+          echo "4. En **Archivos** → subir el ZIP y descomprimir en raíz" >> $GITHUB_STEP_SUMMARY
+          echo "5. Ir a **Ajustes** → puerto 19132" >> $GITHUB_STEP_SUMMARY
+          echo "6. Hacer clic en **Iniciar** ✅" >> $GITHUB_STEP_SUMMARY
+          cat docs/ATERNOS_SETUP.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Generar guía para Oracle
+        if: inputs.target == 'oracle'
+        run: |
+          echo "## ☁️ Guía de Deploy en Oracle Cloud" >> $GITHUB_STEP_SUMMARY
+          cat docs/ORACLE_DEPLOYMENT.md >> $GITHUB_STEP_SUMMARY

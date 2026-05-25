@@ -1,0 +1,68 @@
+# =============================================================
+# ArgentinaCraft Core Plugin
+# Plugin principal — gestiona HUB, provincias, portales, NPCs
+# =============================================================
+
+name: ArgentinaCraft_Core
+version: 1.0.0
+api: ["5.0.0"]
+main: ArgentinaCraft\Core\Main
+description: "Plugin principal de ArgentinaCraft — turismo, provincias, HUB"
+author: ArgentinaCraft Team
+website: https://github.com/argentinacraft
+
+commands:
+  hub:
+    description: "Teletransportarse al HUB principal"
+    usage: "/hub"
+    permission: argentinacraft.teleport.hub
+  provincia:
+    description: "Ir a una provincia específica"
+    usage: "/provincia <nombre>"
+    permission: argentinacraft.teleport.province
+  landmark:
+    description: "Teletransportarse a un landmark"
+    usage: "/landmark <nombre>"
+    permission: argentinacraft.teleport.landmark
+  pasaporte:
+    description: "Ver tu pasaporte de explorador"
+    usage: "/pasaporte"
+    permission: argentinacraft.passport
+  monedas:
+    description: "Ver tus monedas turísticas"
+    usage: "/monedas"
+    permission: argentinacraft.economy
+  logros:
+    description: "Ver tus logros de explorador"
+    usage: "/logros"
+    permission: argentinacraft.achievements
+  acinfo:
+    description: "Información del servidor ArgentinaCraft"
+    usage: "/acinfo"
+    permission: argentinacraft.info
+
+permissions:
+  argentinacraft.teleport.hub:
+    description: "Teleport al HUB"
+    default: true
+  argentinacraft.teleport.province:
+    description: "Teleport a provincias"
+    default: true
+  argentinacraft.teleport.landmark:
+    description: "Teleport a landmarks"
+    default: true
+  argentinacraft.passport:
+    description: "Ver pasaporte"
+    default: true
+  argentinacraft.economy:
+    description: "Ver monedas"
+    default: true
+  argentinacraft.achievements:
+    description: "Ver logros"
+    default: true
+  argentinacraft.info:
+    description: "Info del servidor"
+    default: true
+  argentinacraft.admin:
+    description: "Permisos de administrador"
+    default: op

@@ -1,0 +1,59 @@
+{
+  "_comment": "ArgentinaCraft — Configuración del Sistema de Economía Turística",
+  "_version": "1.0.0",
+  "currency": {
+    "name": "Monedas Turísticas",
+    "symbol": "🪙",
+    "singular": "moneda",
+    "plural": "monedas"
+  },
+  "earning_rates": {
+    "province_visit_new": 25,
+    "province_visit_repeat": 5,
+    "landmark_visit_new": 50,
+    "landmark_visit_repeat": 10,
+    "quest_complete": 100,
+    "secret_found": 150,
+    "achievement_unlock": 20,
+    "daily_login": 10,
+    "invite_player": 30
+  },
+  "shop_items": [
+    {
+      "id": "tourist_hat",
+      "name": "§eSombrero Turístico",
+      "description": "El sombrero de todo buen explorador",
+      "cost": 100,
+      "type": "cosmetic",
+      "item": "minecraft:leather_helmet"
+    },
+    {
+      "id": "passport_gold",
+      "name": "§6Pasaporte Dorado",
+      "description": "Una versión especial de tu pasaporte",
+      "cost": 300,
+      "type": "cosmetic",
+      "item": "minecraft:book"
+    },
+    {
+      "id": "tango_cape",
+      "name": "§cCapa del Tango",
+      "description": "La elegancia del tango porteño",
+      "cost": 500,
+      "type": "cosmetic",
+      "item": "minecraft:leather_chestplate"
+    },
+    {
+      "id": "explorer_title",
+      "name": "§6Título: Explorador Argentino",
+      "description": "Mostrá tu amor por Argentina",
+      "cost": 200,
+      "type": "title",
+      "title_text": "§6Explorador Argentino"
+    }
+  ],
+  "anti_pay_to_win": {
+    "enabled": true,
+    "note": "Solo cosméticos disponibles en la tienda. Sin ventajas de combate o gameplay."
+  }
+}

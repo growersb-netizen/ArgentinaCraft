@@ -1,0 +1,81 @@
+{
+  "_comment": "ArgentinaCraft — Sistema de Teletransporte",
+  "_version": "1.0.0",
+  "hubs": {
+    "main_hub": {
+      "name": "ArgentinaCraft Plaza",
+      "world": "hub",
+      "spawn": {"x": 0, "y": 65, "z": 0, "yaw": 0, "pitch": 0}
+    }
+  },
+  "provinces": {
+    "buenos_aires": {
+      "name": "Buenos Aires",
+      "world": "buenos_aires",
+      "spawn": {"x": 0, "y": 65, "z": 0, "yaw": 180, "pitch": 0},
+      "portal_location": {"x": 20, "y": 65, "z": 0, "world": "hub"},
+      "portal_color": "blue"
+    },
+    "cordoba": {
+      "name": "Córdoba",
+      "world": "cordoba",
+      "spawn": {"x": 0, "y": 65, "z": 0, "yaw": 180, "pitch": 0},
+      "portal_location": {"x": 30, "y": 65, "z": 0, "world": "hub"},
+      "portal_color": "green"
+    },
+    "misiones": {
+      "name": "Misiones",
+      "world": "misiones",
+      "spawn": {"x": 0, "y": 65, "z": 0, "yaw": 180, "pitch": 0},
+      "portal_location": {"x": 40, "y": 65, "z": 0, "world": "hub"},
+      "portal_color": "dark_green"
+    },
+    "mendoza": {
+      "name": "Mendoza",
+      "world": "mendoza",
+      "spawn": {"x": 0, "y": 65, "z": 0, "yaw": 180, "pitch": 0},
+      "portal_location": {"x": 50, "y": 65, "z": 0, "world": "hub"},
+      "portal_color": "purple"
+    }
+  },
+  "landmarks": {
+    "obelisco": {
+      "name": "Obelisco",
+      "province": "buenos_aires",
+      "coords": {"x": 100, "y": 65, "z": 0}
+    },
+    "caminito": {
+      "name": "Caminito",
+      "province": "buenos_aires",
+      "coords": {"x": 200, "y": 65, "z": 0}
+    },
+    "la_bombonera": {
+      "name": "La Bombonera",
+      "province": "buenos_aires",
+      "coords": {"x": 300, "y": 65, "z": 0}
+    },
+    "cataratas_iguazu": {
+      "name": "Cataratas del Iguazú",
+      "province": "misiones",
+      "coords": {"x": 0, "y": 65, "z": 100}
+    },
+    "cerro_aconcagua": {
+      "name": "Aconcagua",
+      "province": "mendoza",
+      "coords": {"x": -200, "y": 200, "z": 0}
+    }
+  },
+  "signs": {
+    "format": "[Teleport]",
+    "valid_destinations": ["hub", "buenos_aires", "cordoba", "misiones", "mendoza"],
+    "cooldown_seconds": 5
+  },
+  "portal_blocks": {
+    "type": "nether_portal_alternative",
+    "materials": {
+      "frame": "minecraft:stone_bricks",
+      "inside": "minecraft:stained_glass"
+    },
+    "size": {"width": 4, "height": 5}
+  }
+}

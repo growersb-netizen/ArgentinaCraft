@@ -1,0 +1,54 @@
+{
+  "_comment": "ArgentinaCraft — Misiones de Mendoza",
+  "_version": "1.0.0",
+  "province": "mendoza",
+  "quests": [
+    {
+      "id": "mza_welcome",
+      "name": "§5La Tierra del Sol y del Buen Vino",
+      "description": "Llegaste a Mendoza, la capital mundial del malbec.",
+      "category": "intro",
+      "steps": [
+        {
+          "id": "arrive",
+          "type": "arrive_in_world",
+          "world": "mendoza",
+          "description": "Llegar a Mendoza"
+        }
+      ],
+      "rewards": {"coins": 25, "achievement": "mendoza_first_visit"}
+    },
+    {
+      "id": "mza_vineyards",
+      "name": "§5Entre Viñedos",
+      "description": "Explorá los viñedos que rodean la ciudad de Mendoza.",
+      "category": "exploration",
+      "steps": [
+        {
+          "id": "reach_vineyard",
+          "type": "reach_location",
+          "location": {"x": 150, "y": 65, "z": 0, "radius": 20},
+          "world": "mendoza",
+          "description": "Llegar a los viñedos"
+        }
+      ],
+      "rewards": {"coins": 50, "achievement": "vineyard_explorer"}
+    },
+    {
+      "id": "mza_andes",
+      "name": "§7El Techo del Continente",
+      "description": "Llegá a la vista de los Andes y el Cerro Aconcagua.",
+      "category": "landmark",
+      "steps": [
+        {
+          "id": "reach_andes",
+          "type": "reach_location",
+          "location": {"x": -200, "y": 150, "z": 0, "radius": 30},
+          "world": "mendoza",
+          "description": "Ver los Andes desde las alturas"
+        }
+      ],
+      "rewards": {"coins": 80, "achievement": "andes_viewer"}
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# =============================================================
+# ArgentinaCraft — Operadores del servidor
+# Agregar un nombre de usuario por línea
+# =============================================================
+
+# Admin principal
+# TuNombreAqui

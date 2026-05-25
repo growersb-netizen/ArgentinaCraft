@@ -1,0 +1,113 @@
+{
+  "_comment": "ArgentinaCraft — NPCs de Buenos Aires",
+  "_version": "1.0.0",
+  "npcs": [
+    {
+      "id": "obelisco_guide",
+      "name": "§e§lGuía del Obelisco",
+      "position": {"x": 100, "y": 65, "z": 0, "world": "buenos_aires"},
+      "dialogues": [
+        {
+          "id": "greeting",
+          "text": "§e¡Che, bienvenido al Obelisco! §fEste monumento icónico fue inaugurado el §b23 de mayo de 1936§f. Mide §b67,5 metros§f de altura y está ubicado en la intersección de §b9 de Julio§f — la avenida más ancha del mundo — y §bCorrientes§f.",
+          "options": [
+            {"text": "§a¿Por qué se construyó?",          "next": "history"},
+            {"text": "§b¿Dónde más puedo ir?",            "next": "nearby"},
+            {"text": "§7Gracias",                          "next": "close"}
+          ]
+        },
+        {
+          "id": "history",
+          "text": "§fEl Obelisco se construyó para conmemorar el §b400° aniversario§f de la primera fundación de Buenos Aires. La obra tardó solo §b31 días§f en completarse. Está hecho de hormigón revestido en §bpiedra Mar del Plata§f.",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "nearby",
+          "text": "§fDesde acá podés ir a:\n§e▸ §f§bCaminito§f — el colorido barrio de La Boca\n§e▸ §f§bLa Bombonera§f — el estadio de Boca Juniors\n\nUsá §b/landmark caminito§f o §b/landmark la_bombonera§f.",
+          "options": [
+            {"text": "§aIr a Caminito",       "action": "teleport_landmark:caminito"},
+            {"text": "§aIr a La Bombonera",   "action": "teleport_landmark:la_bombonera"},
+            {"text": "§7Cerrar",               "next": "close"}
+          ]
+        },
+        {
+          "id": "close",
+          "text": "§e¡Chau! ¡Que disfrutes Buenos Aires! 🇦🇷",
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": "caminito_artist",
+      "name": "§c§lArtista de Caminito",
+      "position": {"x": 200, "y": 65, "z": 0, "world": "buenos_aires"},
+      "dialogues": [
+        {
+          "id": "greeting",
+          "text": "§c¡Bienvenido a Caminito! §fEste pasaje colorido en §bLa Boca§f es uno de los lugares más fotografiados de Buenos Aires. La tradición de pintar las casas con colores brillantes viene de los §bmigrantes genoveses§f que usaban los sobrantes de pintura de los barcos.",
+          "options": [
+            {"text": "§a¿Qué más hay que ver aquí?",     "next": "attractions"},
+            {"text": "§b¿Qué es el tango?",               "next": "tango"},
+            {"text": "§7Gracias",                          "next": "close"}
+          ]
+        },
+        {
+          "id": "attractions",
+          "text": "§fEn La Boca también podés encontrar:\n§c▸ §fEl §bMuseo Quinquela Martín§f (el pintor de La Boca)\n§c▸ §fEl §bEstadio La Bombonera§f de Boca Juniors\n§c▸ §fLa §bCancha de bochas§f en la calle\n§c▸ §fBailadores de §btango§f en las esquinas",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "tango",
+          "text": "§fEl §btango§f es el baile emblema de Argentina, nacido en los §bconventillos§f de Buenos Aires a fines del siglo XIX. Es una danza de §bimprovisación§f entre dos personas. Fue declarado §bPatrimonio Cultural Inmaterial§f de la Humanidad por la UNESCO en §b2009§f.",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "close",
+          "text": "§e¡Buen viaje por La Boca! Acordate de visitar La Bombonera también. ⚽",
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": "bombonera_fan",
+      "name": "§1§lHincha de Boca",
+      "position": {"x": 300, "y": 65, "z": 0, "world": "buenos_aires"},
+      "dialogues": [
+        {
+          "id": "greeting",
+          "text": "§1¡Dale Boca! §fBienvenido a §b§nLa Bombonera§r§f, el estadio del §6Club Atlético Boca Juniors§f. El nombre oficial es §bEstadio Alberto J. Armando§f. Tiene capacidad para §b54.000 espectadores§f y fue inaugurado en §b1940§f.",
+          "options": [
+            {"text": "§a¿Por qué se llama La Bombonera?", "next": "name_origin"},
+            {"text": "§b¿Qué es Boca Juniors?",           "next": "boca_info"},
+            {"text": "§7Gracias",                          "next": "close"}
+          ]
+        },
+        {
+          "id": "name_origin",
+          "text": "§fLa apodo 'La Bombonera' se debe a su §bforma especial§f. El arquitecto §bVictor Sulcic§f diseñó un estadio con tres tribunas muy verticales y una tribuna baja, lo que le da una forma parecida a una §bcaja de bombones§f.",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "boca_info",
+          "text": "§fBoca Juniors fue fundado en §b1905§f por inmigrantes italianos en el barrio de La Boca. Es uno de los clubes más populares del mundo con millones de hinchas. Sus colores son §bel azul y el amarillo§f, que según la leyenda corresponden a los colores de la bandera del primer barco sueco que ancló en el puerto.",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "close",
+          "text": "§1¡La mitad más uno! ⚽🇦🇷",
+          "options": []
+        }
+      ]
+    }
+  ]
+}

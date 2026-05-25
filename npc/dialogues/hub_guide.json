@@ -1,0 +1,114 @@
+{
+  "_comment": "ArgentinaCraft — Diálogos del NPC Guía del HUB",
+  "_version": "1.0.0",
+  "npcs": [
+    {
+      "id": "hub_guide_main",
+      "name": "§6§lGuía Turístico",
+      "skin": "tourist_guide",
+      "position": {"x": 10, "y": 65, "z": 0, "world": "hub"},
+      "dialogues": [
+        {
+          "id": "greeting",
+          "trigger": "first_interaction",
+          "text": "§e¡Hola! §fBienvenido a §6ArgentinaCraft§f, el servidor donde podés explorar las maravillas de §bArgentina§f. ¿Por dónde querés empezar?",
+          "options": [
+            {"text": "§a¿Cómo funciona esto?",     "next": "how_it_works"},
+            {"text": "§b¿Cómo llego a Buenos Aires?", "next": "go_to_ba"},
+            {"text": "§eVer todas las provincias",  "next": "all_provinces"},
+            {"text": "§7Gracias, ya sé cómo funciona", "next": "close"}
+          ]
+        },
+        {
+          "id": "how_it_works",
+          "text": "§fEste servidor es como un §6pasaporte virtual de Argentina§f. Podés:\n§a▸ §fVisitar §bprovincias§f usando los portales\n§a▸ §fExplorar §blugares famosos§f\n§a▸ §fColeccionar §bsellos§f en tu pasaporte\n§a▸ §fCompletár §bmisiones§f turísticas\n§a▸ §fGanar §bmonedas turísticas§f 🪙",
+          "options": [
+            {"text": "§a¿Qué puedo hacer con las monedas?", "next": "coins_info"},
+            {"text": "§b¿Cómo funciona el pasaporte?",       "next": "passport_info"},
+            {"text": "§7Volver",                              "next": "greeting"}
+          ]
+        },
+        {
+          "id": "go_to_ba",
+          "text": "§f¡Perfecto! §6Buenos Aires§f es nuestra primera provincia. Podés llegar de tres maneras:\n§e▸ §fEscribir §b/provincia buenos_aires\n§e▸ §fUsar el §bportal azul§f de la plaza\n§e▸ §fHacerle click al §bcartel§f de la entrada\n\n§a¡El Obelisco, Caminito y La Bombonera te esperan!",
+          "options": [
+            {"text": "§aIr a Buenos Aires ahora",  "action": "teleport:buenos_aires"},
+            {"text": "§7Volver",                   "next": "greeting"}
+          ]
+        },
+        {
+          "id": "all_provinces",
+          "text": "§fEn §6ArgentinaCraft§f tenés §b4 provincias§f disponibles:\n\n§6🏙️ §eBuenos Aires§f — Ciudad, tango y cultura\n§a🏔️ §eCórdoba§f — Sierras y lagos\n§2🌿 §eMisiones§f — Iguazú y selva\n§5🍇 §eMendoza§f — Vino y los Andes\n\n§fUsá §b/provincia <nombre>§f para ir a cualquiera.",
+          "options": [
+            {"text": "§7Cerrar", "next": "close"}
+          ]
+        },
+        {
+          "id": "coins_info",
+          "text": "§fLas §6monedas turísticas 🪙§f se ganan explorando:\n§e▸ §fVisitar una nueva provincia: §a+25 monedas\n§e▸ §fDescubrir un landmark: §a+50 monedas\n§e▸ §fCompletar una misión: §a+100 monedas\n\nPronto podrás usarlas para §bcosméticos§f especiales.",
+          "options": [
+            {"text": "§7Volver", "next": "how_it_works"}
+          ]
+        },
+        {
+          "id": "passport_info",
+          "text": "§fTu §6Pasaporte Argentino 📖§f registra todos los lugares que visitaste. Cuando llegás a una provincia por primera vez, recibís un §bsello§f. Con §b4 sellos§f te convertís en §6Gran Explorador§f.\n\nEscribí §b/pasaporte§f para verlo en cualquier momento.",
+          "options": [
+            {"text": "§7Volver", "next": "how_it_works"}
+          ]
+        },
+        {
+          "id": "close",
+          "text": "§e¡Buen viaje por Argentina! §fRecordá que podés volver al HUB en cualquier momento con §b/hub§f.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": "hub_history_npc",
+      "name": "§b§lHistoriador",
+      "skin": "historian",
+      "position": {"x": -10, "y": 65, "z": 5, "world": "hub"},
+      "dialogues": [
+        {
+          "id": "greeting",
+          "trigger": "interaction",
+          "text": "§f¡Bienvenido! Soy el §bHistoriador§f de ArgentinaCraft. ¿Querés aprender sobre la historia de Argentina?",
+          "options": [
+            {"text": "§aSí, contame sobre Argentina",         "next": "argentina_intro"},
+            {"text": "§bCuéntame sobre Buenos Aires",         "next": "ba_history"},
+            {"text": "§eCuéntame sobre las provincias",       "next": "provinces_history"},
+            {"text": "§7No gracias",                          "next": "close"}
+          ]
+        },
+        {
+          "id": "argentina_intro",
+          "text": "§6Argentina§f es el §boctavo país más grande del mundo§f. Está ubicada en el extremo sur de §bAmérica del Sur§f. Con más de §b45 millones de habitantes§f y §b23 provincias§f más la Ciudad Autónoma de Buenos Aires.\n\nEl idioma oficial es el §bespañol§f. La capital es §6Buenos Aires§f.",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "ba_history",
+          "text": "§6Buenos Aires§f fue fundada dos veces: en §b1535§f por Pedro de Mendoza, y definitivamente en §b1580§f por Juan de Garay. Es llamada §e'La París de Sudamérica'§f por su arquitectura europea y su rica vida cultural. Es la §bcapital federal§f desde 1880.",
+          "options": [
+            {"text": "§aIr a Buenos Aires",  "action": "teleport:buenos_aires"},
+            {"text": "§7Volver",              "next": "greeting"}
+          ]
+        },
+        {
+          "id": "provinces_history",
+          "text": "§fArgentina tiene §b23 provincias§f. En ArgentinaCraft empezamos con:\n§6▸ Buenos Aires§f — fundada en 1580\n§a▸ Córdoba§f — fundada en 1573, la más antigua\n§2▸ Misiones§f — conocida por las ruinas jesuíticas\n§5▸ Mendoza§f — cruce de los Andes por San Martín",
+          "options": [
+            {"text": "§7Volver", "next": "greeting"}
+          ]
+        },
+        {
+          "id": "close",
+          "text": "§e¡Que disfrutes el viaje por nuestra historia! 📚",
+          "options": []
+        }
+      ]
+    }
+  ]
+}
